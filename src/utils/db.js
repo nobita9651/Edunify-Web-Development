@@ -6,7 +6,7 @@ if (typeof window === "undefined") {
   const mysql = require("mysql2");
 
   db = mysql.createConnection({
-    host: "localhost",
+    host: "127.0.0.1",
     user: "abhi",
     password: "Ijkl098765@",
     database: "school_db",
