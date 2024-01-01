@@ -1,4 +1,3 @@
-// utils/db.js
 let db;
 
 if (typeof window === "undefined") {
@@ -6,10 +5,10 @@ if (typeof window === "undefined") {
   const mysql = require("mysql2");
 
   db = mysql.createConnection({
-    host: "127.0.0.1",
-    user: "abhi",
-    password: "Ijkl098765@",
-    database: "school_db",
+    host: process.env.DB_HOST || "localhost",
+    user: process.env.DB_USER || "abhi",
+    password: process.env.DB_PASSWORD || "Ijkl098765@",
+    database: process.env.DB_DATABASE || "school_db",
   });
 
   db.connect((err) => {
