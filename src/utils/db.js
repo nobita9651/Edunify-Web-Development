@@ -5,7 +5,16 @@ const db = mysql.createPool({
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
-  connectionLimit: 10, // Adjust as needed
+  connectionLimit: 10,
+});
+
+db.getConnection((err, connection) => {
+  if (err) {
+    console.error("Error connecting to MySQL:", err);
+  } else {
+    console.log("Connected to MySQL!");
+    connection.release();
+  }
 });
 
 export default db;
